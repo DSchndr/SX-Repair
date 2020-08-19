@@ -3,6 +3,7 @@ Nintendo Switch repair instructions
 
 - [SX-Repair](#sx-repair)
 - [My Switch doesn't charge / turn on](#my-switch-doesnt-charge--turn-on)
+- [My Switch doesn't turn on after SX Core/Lite installation](#my-switch-doesnt-turn-on-after-sx-corelite-installation)
 - [My Switch hangs on Nintendo logo and blackscreens / fake charges](#my-switch-hangs-on-nintendo-logo-and-blackscreens--fake-charges)
 - [My Switch bluescreens](#my-switch-bluescreens)
 - [My Switch hangs on SX logo / doesn't boot](#my-switch-hangs-on-sx-logo--doesnt-boot)
@@ -19,21 +20,28 @@ Nintendo Switch repair instructions
 3. Check Capacitors around M92T36, BQ24103, PIUSB3 for Shorts and replace IC / Cap if there is one
 4. Short on 3v3 line after chips from #3 are removed? unplug emmc and check again, in both cases the console is worthless because soc / emmc is broken
 5. Check if there is a Voltage on the Cap near the joycon zif socket near BQ ic
+6. No Voltage? Some issue with M92T36 & USB-C
 
+# My Switch doesn't turn on after SX Core/Lite installation
+1. Check Solder joints
+2. Remove Modchip & check for shorts
+3. Short? -> Your SOC is dead
 
 # My Switch hangs on Nintendo logo and blackscreens / fake charges
 Usually you can start the Console by pressing *volume + & volume - & power* after plugging in the battary
-1. Check that pin 3 of the battary connector has continuity
+1. Check that pin 3 of the battary connector has continuity to the testpad on the mainboard
 2. Check that M92T36 gives BQ24103 a voltage. No voltage? -> Replace it
 3. Check that BQ24103 charges the battary while plugged in and on. No charge? -> Replace it
+4. Check that the USB CC/SBU lines are all connected
 
 # My Switch bluescreens
 Reflow / Reball tegra ic, emmc and ram
 
-Still bluescreens? GPT partitions on emmc are damaged or other issue
+Still bluescreens? GPT partitions on emmc are damaged (use sx modchip to fix) or other issue
 
 # My Switch hangs on SX logo / doesn't boot 
-Check if the 2 caps near the shield from the tegra chip exist...
+Check that the 2 caps near the shield from the tegra chip exist...
+
 Gone? Replace with [TODO: Image / Info]
 
 # I removed a cap on the cpu while soldering on sx c0re / sx l1te
@@ -47,4 +55,6 @@ Your M92T36 is either not soldered in properly or is broken; try reflow and then
 
 # My Joycons don't charge
 Maybe broken M92T36? or dcdc supply
-Replace diode with "PU"? marking
+
+Replace diode with "PU" marking (PCB underside, near lightsensor/led)
+[TODO: Image]
